@@ -27,11 +27,11 @@ io.on("connection", (socket) => {
         return callback({error});
       }
 
-      socket.join(roomId);
+      socket.join(user.roomId);
       console.log(`${username} joined room ${roomId}`);
       // Emit an event to the room that a user has joined
-      socket.emit("message", {username: "admin", text: `${username}, welcome to the room ${roomId}`});
-      socket.broadcast.to(roomId).emit("message", {username: "admin", text: `${username} has joined!`});
+      socket.emit("message", {username: "admin", text: `${user.username}, welcome to the room ${roomId}`});
+      socket.broadcast.to(user.roomId).emit("message", {username: "admin", text: `${username} has joined!`});
 
       callback();
     });
