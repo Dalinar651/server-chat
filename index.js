@@ -3,7 +3,7 @@ const express  = require('express');
 const app = express();
 const router = require('./router'); 
 
-const users = require('./users.ts');
+const users = require('./users.js');
 
 const { createServer } = require("http");
 const { Server } = require("socket.io");
